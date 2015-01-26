@@ -1,0 +1,18 @@
+<bean id="mongoTemplate" class="org.springframework.data.document.mongodb.MongoTemplate">
+        <constructor-arg name="mongo" ref="mongo"/>
+        <constructor-arg name="databaseName" value="cmpe273-wallet"/>
+        <constructor-arg name="userCredentials" ref="mongoCredentials"/>
+    </bean>
+
+    <bean id="mongoCredentials" class="org.springframework.data.authentication.UserCredentials">
+        <property name="username" value="Winnie Zhao" />
+        <property name="password" value="ZWLzwl123" />
+    </bean>
+
+    <bean class="com.mongodb.MongoURI" id="mongoURI">
+        <constructor-arg value=" mongodb://cmpe273-wallet:cmpe273@ds047030.mongolab.com:47030/cmpe273-wallet"  />
+    </bean>
+
+    <bean class="com.mongodb.Mongo" id="mongo">
+        <constructor-arg ref="mongoURI" />
+    </bean>
